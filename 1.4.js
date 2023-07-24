@@ -4,9 +4,10 @@ const _object = {
 };
 
 const handler = {
-    get(target, prop, receiver){
-        return "404";
-    }
-}
+  get: function(target, prop) {
+    // Intercept the property access and always return "404"
+    return "404";
+  }
+};
 
-const proxy = new Proxy(target, handler);
+const proxyObject = new Proxy(_object, handler);
